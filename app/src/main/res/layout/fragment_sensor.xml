@@ -13,20 +13,7 @@
         android:id="@+id/ballViewGyro"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
-    <TextView
-        android:id="@+id/textAccelerometer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Accelerometer"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="#000"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="60dp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
-
+    <!-- Título Gyroscope -->
     <TextView
         android:id="@+id/textGyroscope"
         android:layout_width="wrap_content"
@@ -36,8 +23,46 @@
         android:textStyle="bold"
         android:textColor="#000"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="60dp"
-        android:layout_alignStart="@id/textAccelerometer"
-        android:layout_below="@id/textAccelerometer" />
+        android:layout_marginTop="140dp"
+        android:layout_alignStart="@id/textAccelerometer" />
+
+    <!-- Valores Gyroscope -->
+    <TextView
+        android:id="@+id/textGyroscopeValues"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x:0.00  y:0.00  z:0.00"
+        android:textSize="16sp"
+        android:textColor="#333"
+        android:layout_below="@id/textGyroscope"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"/>
+    <!-- Título Accelerometer -->
+    <TextView
+        android:id="@+id/textAccelerometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accelerometer"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <!-- Valores Accelerometer -->
+    <TextView
+        android:id="@+id/textAccelerometerValues"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x:0.00  y:0.00  z:0.00"
+        android:textSize="16sp"
+        android:textColor="#333"
+        android:layout_below="@id/textAccelerometer"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"/>
+
+
 
 </RelativeLayout>
