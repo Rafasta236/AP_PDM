@@ -9,15 +9,68 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+
     <TextView
         android:id="@+id/tvHint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pressiona no mapa para criar um imóvel"
+        android:text="Pressiona no mapa para criar um marcador"
         android:textColor="@android:color/white"
         android:background="#66000000"
         android:padding="8dp"
         android:layout_gravity="top|center_horizontal"
         android:layout_margin="12dp" />
+
+    <LinearLayout
+        android:id="@+id/mapTypeButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:background="@android:color/transparent">
+
+        <Button
+            android:id="@+id/btnNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Normal"
+            android:padding="8dp"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/btnSatellite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Satélite"
+            android:padding="8dp"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/btnTerrain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Terreno"
+            android:padding="8dp"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/btnHybrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Híbrido"
+            android:padding="8dp"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
 
 </FrameLayout>
