@@ -1,16 +1,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nav_reports"
-        android:title="Relatórios"
-        android:icon="@drawable/ic_nav_analytics" />
-
-    <item
         android:id="@+id/nav_map"
         android:title="Mapa"
         android:icon="@drawable/ic_nav_map" />
 
     <item
-        android:id="@+id/nav_properties"
-        android:title="Imóveis"
-        android:icon="@drawable/ic_nav_apartment" />
+        android:id="@+id/nav_camera"
+        android:title="Camera"
+        android:icon="@drawable/ic_nav_camera" />
+
+    <item
+        android:id="@+id/nav_sensor"
+        android:title="Sensores"
+        android:icon="@drawable/ic_nav_sensor" />
 </menu>

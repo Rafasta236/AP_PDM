@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee">
+
+    <com.example.ap_pdm.ui.elements.BallView
+        android:id="@+id/ballViewAcc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.example.ap_pdm.ui.elements.BallView
+        android:id="@+id/ballViewGyro"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/textAccelerometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accelerometer"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="60dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textGyroscope"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gyroscope"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
+        android:layout_alignStart="@id/textAccelerometer"
+        android:layout_below="@id/textAccelerometer" />
+
+</RelativeLayout>
