@@ -27,7 +27,7 @@ public class MapFragment extends Fragment {
     private GoogleMap map;
     private FusedLocationProviderClient fused;
 
-    private final Map<Long, Marker> markers = new HashMap<>();
+    private final Map<Long, Marker> markers = new HashMap<>(); // map for markers
 
     private static final int REQ_LOC = 1001;
 
@@ -75,27 +75,15 @@ public class MapFragment extends Fragment {
             }
         });
 
-        // cria um marker draggable fixo para testar
-        LatLng test = new LatLng(40.0, -8.0);
-        map.addMarker(new MarkerOptions()
-                .position(test)
-                .title("Test drag")
-                .draggable(true));
-
         // listeners
         setupInfoWindowClick(); // click on a marker -> print
         setupLongClickCreate(); // long click on map -> create property
 
         enableMyLocationAndCenter(); // activate location
 
-        renderMarkersIfReady(); // draws markers if there are any last propertires (lastProps)
     }
-
-    private void renderMarkersIfReady() {
-    }
-
     private void setupInfoWindowClick() {
-        // listener when a marker is clicked it opens the details of the property
+        // listener when a marker is clicked
         map.setOnInfoWindowClickListener(marker -> {
             Object tag = marker.getTag();
             if (tag instanceof Long) {
