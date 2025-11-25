@@ -10,6 +10,7 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -41,6 +42,9 @@ public class SensorFragment extends Fragment implements SensorEventListener {
     private long lastTimestamp = 0;
     private DisplayMetrics displayMetrics;
 
+    private TextView textAccValues;
+    private TextView textGyroValues;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -49,6 +53,9 @@ public class SensorFragment extends Fragment implements SensorEventListener {
 
         ballViewAcc = root.findViewById(R.id.ballViewAcc);
         ballViewGyro = root.findViewById(R.id.ballViewGyro);
+
+        textAccValues = root.findViewById(R.id.textAccelerometerValues);
+        textGyroValues = root.findViewById(R.id.textGyroscopeValues);
 
         displayMetrics = new DisplayMetrics();
         requireActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -59,12 +66,12 @@ public class SensorFragment extends Fragment implements SensorEventListener {
         float size = Math.min(screenWidth * 0.35f, screenHeight * 0.35f);
 
         float accLeft = screenWidth * 0.5f;
-        float accTop = screenHeight * 0.4f;
+        float accTop = screenHeight * 0.38f;
         float accRight = accLeft + size;
         float accBottom = accTop + size;
 
         float gyroLeft = screenWidth * 0.5f;
-        float gyroTop = screenHeight * 0.6f;
+        float gyroTop = screenHeight * 0.1f;
         float gyroRight = gyroLeft + size;
         float gyroBottom = gyroTop + size;
 
@@ -119,20 +126,33 @@ public class SensorFragment extends Fragment implements SensorEventListener {
          */
 
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            float dx = -event.values[0];
-            float dy = event.values[1];
+            float x = event.values[0];
+            float y = event.values[1];
+            float z = event.values[2];
+
+            float dx = -x;
+            float dy = y;
             ballViewAcc.updatePosition(dx * 2, dy * 2);
+
+            textAccValues.setText(String.format("x: %.2f  y: %.2f  z: %.2f", x, y, z));
         }
 
         // Usamos o dt para transformar velocidade angular no deslocamento da bola
         if (event.sensor.getType() == Sensor.TYPE_GYROSCOPE) {
+            float x = event.values[0];
+            float y = event.values[1];
+            float z = event.values[2];
+
             if (lastTimestamp != 0) {
                 float dt = (event.timestamp - lastTimestamp) * 1e-9f;
-                float dx = event.values[1] * dt * 500;
-                float dy = event.values[0] * dt * 500;
+                float dx = y * dt * 500;
+                float dy = x * dt * 500;
                 ballViewGyro.updatePosition(dx, dy);
             }
             lastTimestamp = event.timestamp;
+
+            // ATUALIZA LABEL DO GIROSCÓPIO
+            textGyroValues.setText(String.format("x: %.2f  y: %.2f  z: %.2f", x, y, z));
         }
     }
 
