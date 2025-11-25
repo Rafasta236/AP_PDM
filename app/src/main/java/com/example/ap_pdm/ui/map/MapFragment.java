@@ -83,7 +83,7 @@ public class MapFragment extends Fragment {
                 .draggable(true));
 
         // listeners
-        setupInfoWindowClick(); // click on a property -> open details
+        setupInfoWindowClick(); // click on a marker -> print
         setupLongClickCreate(); // long click on map -> create property
 
         enableMyLocationAndCenter(); // activate location
@@ -100,7 +100,10 @@ public class MapFragment extends Fragment {
             Object tag = marker.getTag();
             if (tag instanceof Long) {
                 long pid = (Long) tag;
-                System.out.println("Click on marker");
+                LatLng position = marker.getPosition();
+                Toast.makeText(getContext(),
+                        "Clicaste no marcador - Lat: " + position.latitude + ", Lng: " + position.longitude ,
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
