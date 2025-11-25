@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.*;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.*;
@@ -39,6 +40,17 @@ public class MapFragment extends Fragment {
         super.onViewCreated(v, s);
         fused = LocationServices.getFusedLocationProviderClient(requireContext());
         initMap();
+
+        Button btnNormal = v.findViewById(R.id.btnNormal);
+        Button btnSatellite = v.findViewById(R.id.btnSatellite);
+        Button btnTerrain = v.findViewById(R.id.btnTerrain);
+        Button btnHybrid = v.findViewById(R.id.btnHybrid);
+
+        btnNormal.setOnClickListener(view -> map.setMapType(GoogleMap.MAP_TYPE_NORMAL));
+        btnSatellite.setOnClickListener(view -> map.setMapType(GoogleMap.MAP_TYPE_SATELLITE));
+        btnTerrain.setOnClickListener(view -> map.setMapType(GoogleMap.MAP_TYPE_TERRAIN));
+        btnHybrid.setOnClickListener(view -> map.setMapType(GoogleMap.MAP_TYPE_HYBRID));
+
     }
 
     private void initMap() {
@@ -78,9 +90,21 @@ public class MapFragment extends Fragment {
     private void setupLongClickCreate() {
         // listener for the long click on the map
         map.setOnMapLongClickListener(latLng -> {
-            System.out.println("Long click listener");
 
-            map.addMarker(new MarkerOptions().position(latLng).title("Novo imóvel"));
+            Toast.makeText(getContext(),
+                    "Lat: " + latLng.latitude + ", Lng: " + latLng.longitude,
+                    Toast.LENGTH_SHORT).show();
+
+            map.addMarker(new MarkerOptions().position(latLng).title("Novo imóvel").draggable(true));
+        });
+
+        map.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
+            @Override public void onMarkerDragStart(Marker m) {}
+            @Override public void onMarkerDrag(Marker m) {}
+            @Override public void onMarkerDragEnd(Marker m) {
+                LatLng newPos = m.getPosition();
+                System.out.println("Nova posição: " + newPos);
+            }
         });
     }
 

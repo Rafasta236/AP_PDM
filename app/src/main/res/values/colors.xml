@@ -22,4 +22,6 @@
     <color name="outline">#E5E7EB</color>
     <color name="shadow">#1F000000</color>
     <color name="ripple">#1A000000</color>
+
+    <color name="purple_500">#6200EE</color>
 </resources>
