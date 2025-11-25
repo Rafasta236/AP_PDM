@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-
     <TextView
         android:id="@+id/tvHint"
         android:layout_width="wrap_content"
@@ -21,16 +20,15 @@
         android:layout_gravity="top|center_horizontal"
         android:layout_margin="12dp" />
 
+    <!-- BOTÕES DE TIPO DE MAPA NO FUNDO -->
     <LinearLayout
         android:id="@+id/mapTypeButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="8dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="16dp"
-        android:gravity="center"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="20dp"
         android:background="@android:color/transparent">
 
         <Button
@@ -40,7 +38,7 @@
             android:text="Normal"
             android:padding="8dp"
             android:backgroundTint="@color/purple_500"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/btnSatellite"
@@ -50,7 +48,7 @@
             android:padding="8dp"
             android:layout_marginStart="8dp"
             android:backgroundTint="@color/purple_500"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/btnTerrain"
@@ -60,7 +58,7 @@
             android:padding="8dp"
             android:layout_marginStart="8dp"
             android:backgroundTint="@color/purple_500"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/btnHybrid"
@@ -70,7 +68,7 @@
             android:padding="8dp"
             android:layout_marginStart="8dp"
             android:backgroundTint="@color/purple_500"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white" />
     </LinearLayout>
 
 </FrameLayout>

@@ -46,10 +46,10 @@ public class MapFragment extends Fragment {
         Button btnTerrain = v.findViewById(R.id.btnTerrain);
         Button btnHybrid = v.findViewById(R.id.btnHybrid);
 
+        btnHybrid.setOnClickListener(view -> map.setMapType(GoogleMap.MAP_TYPE_HYBRID));
         btnNormal.setOnClickListener(view -> map.setMapType(GoogleMap.MAP_TYPE_NORMAL));
         btnSatellite.setOnClickListener(view -> map.setMapType(GoogleMap.MAP_TYPE_SATELLITE));
         btnTerrain.setOnClickListener(view -> map.setMapType(GoogleMap.MAP_TYPE_TERRAIN));
-        btnHybrid.setOnClickListener(view -> map.setMapType(GoogleMap.MAP_TYPE_HYBRID));
 
     }
 
@@ -63,6 +63,24 @@ public class MapFragment extends Fragment {
         map = gm;
 
         map.getUiSettings().setZoomControlsEnabled(true); // turn on UI Setting (zoom buttons)
+
+        map.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
+            @Override public void onMarkerDragStart(Marker m) {}
+            @Override public void onMarkerDrag(Marker m) {}
+            @Override public void onMarkerDragEnd(Marker m) {
+                LatLng newPos = m.getPosition();
+                Toast.makeText(getContext(),
+                        "Nova posição: " + newPos.latitude + ", " + newPos.longitude,
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // cria um marker draggable fixo para testar
+        LatLng test = new LatLng(40.0, -8.0);
+        map.addMarker(new MarkerOptions()
+                .position(test)
+                .title("Test drag")
+                .draggable(true));
 
         // listeners
         setupInfoWindowClick(); // click on a property -> open details
@@ -90,22 +108,13 @@ public class MapFragment extends Fragment {
     private void setupLongClickCreate() {
         // listener for the long click on the map
         map.setOnMapLongClickListener(latLng -> {
-
             Toast.makeText(getContext(),
                     "Lat: " + latLng.latitude + ", Lng: " + latLng.longitude,
                     Toast.LENGTH_SHORT).show();
 
-            map.addMarker(new MarkerOptions().position(latLng).title("Novo imóvel").draggable(true));
+            map.addMarker(new MarkerOptions().position(latLng).title("Novo Marcador").draggable(true));
         });
 
-        map.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
-            @Override public void onMarkerDragStart(Marker m) {}
-            @Override public void onMarkerDrag(Marker m) {}
-            @Override public void onMarkerDragEnd(Marker m) {
-                LatLng newPos = m.getPosition();
-                System.out.println("Nova posição: " + newPos);
-            }
-        });
     }
 
 
