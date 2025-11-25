@@ -151,7 +151,6 @@ public class SensorFragment extends Fragment implements SensorEventListener {
             }
             lastTimestamp = event.timestamp;
 
-            // ATUALIZA LABEL DO GIROSCÓPIO
             textGyroValues.setText(String.format("x: %.2f  y: %.2f  z: %.2f", x, y, z));
         }
     }

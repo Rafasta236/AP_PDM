@@ -75,6 +75,8 @@ public class MapFragment extends Fragment {
             }
         });
 
+        map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+
         // listeners
         setupInfoWindowClick(); // click on a marker -> print
         setupLongClickCreate(); // long click on map -> create property

@@ -13,7 +13,7 @@
         android:id="@+id/ballViewGyro"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-    <!-- Título Gyroscope -->
+
     <TextView
         android:id="@+id/textGyroscope"
         android:layout_width="wrap_content"
@@ -26,7 +26,6 @@
         android:layout_marginTop="140dp"
         android:layout_alignStart="@id/textAccelerometer" />
 
-    <!-- Valores Gyroscope -->
     <TextView
         android:id="@+id/textGyroscopeValues"
         android:layout_width="wrap_content"
@@ -37,7 +36,7 @@
         android:layout_below="@id/textGyroscope"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"/>
-    <!-- Título Accelerometer -->
+
     <TextView
         android:id="@+id/textAccelerometer"
         android:layout_width="wrap_content"
@@ -51,7 +50,7 @@
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true" />
 
-    <!-- Valores Accelerometer -->
+
     <TextView
         android:id="@+id/textAccelerometerValues"
         android:layout_width="wrap_content"

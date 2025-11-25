@@ -5,63 +5,54 @@
     android:viewportHeight="24"
     android:tint="?attr/colorOnSurface">
 
-    <!-- Círculo central -->
     <path
         android:fillColor="@android:color/black"
         android:pathData="M12,8
                           a4,4 0 1,0 0,8
                           a4,4 0 1,0 0,-8"/>
 
-    <!-- Linha vertical cima -->
     <path
         android:strokeColor="@android:color/black"
         android:strokeWidth="2"
         android:fillColor="@android:color/transparent"
         android:pathData="M12,2 L12,8"/>
 
-    <!-- Linha vertical baixo -->
     <path
         android:strokeColor="@android:color/black"
         android:strokeWidth="2"
         android:fillColor="@android:color/transparent"
         android:pathData="M12,16 L12,22"/>
 
-    <!-- Linha horizontal esquerda -->
     <path
         android:strokeColor="@android:color/black"
         android:strokeWidth="2"
         android:fillColor="@android:color/transparent"
         android:pathData="M2,12 L8,12"/>
 
-    <!-- Linha horizontal direita -->
     <path
         android:strokeColor="@android:color/black"
         android:strokeWidth="2"
         android:fillColor="@android:color/transparent"
         android:pathData="M16,12 L22,12"/>
 
-    <!-- Diagonal superior esquerda -->
     <path
         android:strokeColor="@android:color/black"
         android:strokeWidth="2"
         android:fillColor="@android:color/transparent"
         android:pathData="M4.93,4.93 L8,8"/>
 
-    <!-- Diagonal inferior direita -->
     <path
         android:strokeColor="@android:color/black"
         android:strokeWidth="2"
         android:fillColor="@android:color/transparent"
         android:pathData="M16,16 L19.07,19.07"/>
 
-    <!-- Diagonal inferior esquerda -->
     <path
         android:strokeColor="@android:color/black"
         android:strokeWidth="2"
         android:fillColor="@android:color/transparent"
         android:pathData="M4,20 L7.07,16.93"/>
 
-    <!-- Diagonal superior direita -->
     <path
         android:strokeColor="@android:color/black"
         android:strokeWidth="2"
