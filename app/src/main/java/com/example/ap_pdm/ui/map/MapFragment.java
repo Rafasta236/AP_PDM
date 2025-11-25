@@ -85,7 +85,6 @@ public class MapFragment extends Fragment {
     }
 
 
-    @SuppressWarnings("deprecation")
     private void enableMyLocationAndCenter() {
         if (map == null) return;
 
